@@ -1,5 +1,6 @@
 module.exports = function toReadable (number) {
     let first = {
+        0: 'zero',
         1: 'one',
         2: 'two',
         3: 'three',
@@ -37,7 +38,7 @@ module.exports = function toReadable (number) {
       9: 'ninety'
   }
   
-  if (number > 0 && number <= 10) {
+  if (number >= 0 && number <= 10) {
     return first[number]
   }
   if (number > 10 && number < 21) {
@@ -50,9 +51,9 @@ module.exports = function toReadable (number) {
         return third[number.toString()[0]] + " " + first[number.toString()[1]];
     }
 }
-  if (number > 100 && number <= 999) {
+  if (number >= 100 && number <= 999) {
       if (number.toString()[1] == 0 && number.toString()[2] == 0) {
-      return first[number.toString()[0]] + ' hundred '
+      return first[number.toString()[0]] + ' hundred'
       }
       if (number.toString()[1] == 0) {
           return first[number.toString()[0]] + ' hundred ' + first[number.toString()[2]]
